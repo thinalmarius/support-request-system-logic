@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://datalayer/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://datalayer/">
+
+<xs:element name="getCusId" type="tns:getCusId"/>
+
+<xs:element name="getCusIdResponse" type="tns:getCusIdResponse"/>
+
+<xs:element name="getMsg" type="tns:getMsg"/>
+
+<xs:element name="getMsgResponse" type="tns:getMsgResponse"/>
+
+<xs:element name="getPassword" type="tns:getPassword"/>
+
+<xs:element name="getPasswordResponse" type="tns:getPasswordResponse"/>
+
+<xs:element name="getuser" type="tns:getuser"/>
+
+<xs:element name="getuserResponse" type="tns:getuserResponse"/>
+
+<xs:element name="viewTickets" type="tns:viewTickets"/>
+
+<xs:element name="viewTicketsResponse" type="tns:viewTicketsResponse"/>
+
+<xs:complexType name="viewTickets">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="viewTicketsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tickets" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tickets">
+<xs:sequence>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="prob" type="xs:string" minOccurs="0"/>
+<xs:element name="severity" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCusId">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="company" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCusIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPassword">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMsg">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="line" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMsgResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getuser">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getuserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
