@@ -9,7 +9,7 @@
     <client name="datalink">
       <wsdl-url>http://localhost:1581/database-layer/datalink?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1581/database-layer/datalink.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">data</package-name>
+      <package-name>datalayer</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -35,10 +35,6 @@
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>data</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>

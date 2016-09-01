@@ -45,7 +45,7 @@
     </target>
     <target name="wsimport-client-datalink" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/datalink"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/datalink" destdir="${build.generated.dir}/jax-wsCache/datalink" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/datalink/wsdl/localhost_1581/database-layer/datalink.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:1581/database-layer/datalink?wsdl" xnocompile="true" xendorsed="true" package="data">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/datalink" destdir="${build.generated.dir}/jax-wsCache/datalink" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/datalink/wsdl/localhost_1581/database-layer/datalink.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:1581/database-layer/datalink?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/datalink/wsdl/localhost_1581/database-layer/datalink.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/datalink"/>
         </wsimport>
@@ -56,7 +56,7 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-datalink" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/data"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/datalayer"/>
         <delete dir="${build.generated.dir}/jax-wsCache/datalink"/>
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-datalink"/>

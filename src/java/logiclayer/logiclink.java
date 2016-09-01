@@ -5,13 +5,15 @@
  */
 package logiclayer;
 
-import data.Datalink;
-import data.Datalink_Service;
-import data.Tickets;
+import datalayer.Datalink;
+import datalayer.Datalink_Service;
+import datalayer.Tickets;
 import java.util.ArrayList;
+import javax.jws.Oneway;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import srs.nlp.WordDetector;
 
 /**
  *
@@ -61,7 +63,8 @@ public class logiclink {
     
     @WebMethod(operationName = "getMessage")
     public void getMessage(@WebParam(name = "id")int id,@WebParam(name = "line")String line){
-        proxy.getMsg(id,line);
+        int level=WordDetector.lineParser(line);
+        proxy.addTicket(id, line, level);
     }
     
     @WebMethod(operationName = "viewTickets")
@@ -70,6 +73,19 @@ public class logiclink {
         ticket=(ArrayList<Tickets>) proxy.viewTickets();
         return ticket;
         
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "addCustomer")
+    public int addCustomer(@WebParam(name = "name") String name, @WebParam(name = "email") String email, @WebParam(name = "company") String company) {
+        int ret=proxy.addCustomer(name, email, company);
+        return ret;
+    }
+    @WebMethod(operationName = "addUser")
+    public void addUser(@WebParam(name = "name") String name, @WebParam(name = "pswd") String pswd){
+        proxy.addUser(name, pswd);
     }
     
 }

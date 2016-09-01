@@ -1,16 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://datalayer/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://datalayer/">
 
+<xs:element name="addCustomer" type="tns:addCustomer"/>
+
+<xs:element name="addCustomerResponse" type="tns:addCustomerResponse"/>
+
+<xs:element name="addTicket" type="tns:addTicket"/>
+
+<xs:element name="addTicketResponse" type="tns:addTicketResponse"/>
+
+<xs:element name="addUser" type="tns:addUser"/>
+
+<xs:element name="addUserResponse" type="tns:addUserResponse"/>
+
+<xs:element name="excludeList" type="tns:excludeList"/>
+
+<xs:element name="excludeListResponse" type="tns:excludeListResponse"/>
+
 <xs:element name="getCusId" type="tns:getCusId"/>
 
 <xs:element name="getCusIdResponse" type="tns:getCusIdResponse"/>
 
-<xs:element name="getMsg" type="tns:getMsg"/>
+<xs:element name="getLearnWords" type="tns:getLearnWords"/>
 
-<xs:element name="getMsgResponse" type="tns:getMsgResponse"/>
+<xs:element name="getNewWords" type="tns:getNewWords"/>
+
+<xs:element name="getNewWordsResponse" type="tns:getNewWordsResponse"/>
 
 <xs:element name="getPassword" type="tns:getPassword"/>
 
 <xs:element name="getPasswordResponse" type="tns:getPasswordResponse"/>
+
+<xs:element name="getStopWords" type="tns:getStopWords"/>
+
+<xs:element name="getStopWordsResponse" type="tns:getStopWordsResponse"/>
 
 <xs:element name="getuser" type="tns:getuser"/>
 
@@ -19,6 +41,50 @@
 <xs:element name="viewTickets" type="tns:viewTickets"/>
 
 <xs:element name="viewTicketsResponse" type="tns:viewTicketsResponse"/>
+
+<xs:complexType name="addCustomer">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="company" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addCustomerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNewWords">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getNewWordsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:words" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="words">
+<xs:sequence>
+<xs:element name="score" type="xs:int"/>
+<xs:element name="word" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCusId">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="company" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCusIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="viewTickets">
 <xs:sequence/>
@@ -40,19 +106,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getCusId">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="company" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getCusIdResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="getPassword">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
@@ -65,17 +118,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getMsg">
-<xs:sequence>
-<xs:element name="id" type="xs:int"/>
-<xs:element name="line" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getMsgResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="getuser">
 <xs:sequence/>
 </xs:complexType>
@@ -84,5 +126,54 @@
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStopWords">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getStopWordsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUser">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="pswd" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUserResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="excludeList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="excludeListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLearnWords">
+<xs:sequence>
+<xs:element name="learnWords" type="tns:words" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTicket">
+<xs:sequence>
+<xs:element name="cus_id" type="xs:int"/>
+<xs:element name="line" type="xs:string" minOccurs="0"/>
+<xs:element name="level" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTicketResponse">
+<xs:sequence/>
 </xs:complexType>
 </xs:schema>
