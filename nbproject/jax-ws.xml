@@ -4,6 +4,9 @@
     <service name="logiclink">
       <implementation-class>logiclayer.logiclink</implementation-class>
     </service>
+    <service name="mailservice">
+      <implementation-class>srs.mail.mailservice</implementation-class>
+    </service>
   </services>
   <clients>
     <client name="datalink">

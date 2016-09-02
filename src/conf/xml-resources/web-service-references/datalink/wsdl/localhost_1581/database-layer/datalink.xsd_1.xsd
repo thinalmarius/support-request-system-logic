@@ -38,23 +38,17 @@
 
 <xs:element name="getuserResponse" type="tns:getuserResponse"/>
 
+<xs:element name="receiveMail" type="tns:receiveMail"/>
+
+<xs:element name="receiveMailResponse" type="tns:receiveMailResponse"/>
+
+<xs:element name="verifyCustomer" type="tns:verifyCustomer"/>
+
+<xs:element name="verifyCustomerResponse" type="tns:verifyCustomerResponse"/>
+
 <xs:element name="viewTickets" type="tns:viewTickets"/>
 
 <xs:element name="viewTicketsResponse" type="tns:viewTicketsResponse"/>
-
-<xs:complexType name="addCustomer">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="email" type="xs:string" minOccurs="0"/>
-<xs:element name="company" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="addCustomerResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
 
 <xs:complexType name="getNewWords">
 <xs:sequence/>
@@ -76,11 +70,63 @@
 <xs:complexType name="getCusId">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="company" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="getCusIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="receiveMail">
+<xs:sequence>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="subject" type="xs:string" minOccurs="0"/>
+<xs:element name="content" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="receiveMailResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUser">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="pswd" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUserResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="addTicket">
+<xs:sequence>
+<xs:element name="cus_id" type="xs:int"/>
+<xs:element name="line" type="xs:string" minOccurs="0"/>
+<xs:element name="level" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTicketResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="addCustomer">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="company" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addCustomerResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
@@ -138,17 +184,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="addUser">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="pswd" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="addUserResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="excludeList">
 <xs:sequence/>
 </xs:complexType>
@@ -159,21 +194,21 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="verifyCustomer">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verifyCustomerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getLearnWords">
 <xs:sequence>
 <xs:element name="learnWords" type="tns:words" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="addTicket">
-<xs:sequence>
-<xs:element name="cus_id" type="xs:int"/>
-<xs:element name="line" type="xs:string" minOccurs="0"/>
-<xs:element name="level" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="addTicketResponse">
-<xs:sequence/>
 </xs:complexType>
 </xs:schema>

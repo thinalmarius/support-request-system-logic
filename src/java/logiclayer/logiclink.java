@@ -9,7 +9,6 @@ import datalayer.Datalink;
 import datalayer.Datalink_Service;
 import datalayer.Tickets;
 import java.util.ArrayList;
-import javax.jws.Oneway;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -56,8 +55,8 @@ public class logiclink {
         
     }
     @WebMethod(operationName= "getCusId")
-    public int getCusId(@WebParam(name = "name") String name, @WebParam(name = "company") String company){
-        int id=proxy.getCusId(name, company);
+    public int getCusId(@WebParam(name = "name") String name, @WebParam(name = "company") String email){
+        int id=proxy.getCusId(name, email);
         return id;
     }
     
