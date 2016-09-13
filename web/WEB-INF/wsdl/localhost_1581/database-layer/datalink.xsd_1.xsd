@@ -12,6 +12,16 @@
 
 <xs:element name="addUserResponse" type="tns:addUserResponse"/>
 
+<xs:element name="deleteCustomer" type="tns:deleteCustomer"/>
+
+<xs:element name="deleteCustomerResponse" type="tns:deleteCustomerResponse"/>
+
+<xs:element name="deleteTicket" type="tns:deleteTicket"/>
+
+<xs:element name="deleteUser" type="tns:deleteUser"/>
+
+<xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+
 <xs:element name="excludeList" type="tns:excludeList"/>
 
 <xs:element name="excludeListResponse" type="tns:excludeListResponse"/>
@@ -19,6 +29,10 @@
 <xs:element name="getCusId" type="tns:getCusId"/>
 
 <xs:element name="getCusIdResponse" type="tns:getCusIdResponse"/>
+
+<xs:element name="getHardwareCategory" type="tns:getHardwareCategory"/>
+
+<xs:element name="getHardwareCategoryResponse" type="tns:getHardwareCategoryResponse"/>
 
 <xs:element name="getLearnWords" type="tns:getLearnWords"/>
 
@@ -30,6 +44,10 @@
 
 <xs:element name="getPasswordResponse" type="tns:getPasswordResponse"/>
 
+<xs:element name="getSoftwareCategory" type="tns:getSoftwareCategory"/>
+
+<xs:element name="getSoftwareCategoryResponse" type="tns:getSoftwareCategoryResponse"/>
+
 <xs:element name="getStopWords" type="tns:getStopWords"/>
 
 <xs:element name="getStopWordsResponse" type="tns:getStopWordsResponse"/>
@@ -38,17 +56,21 @@
 
 <xs:element name="getuserResponse" type="tns:getuserResponse"/>
 
-<xs:element name="receiveMail" type="tns:receiveMail"/>
-
-<xs:element name="receiveMailResponse" type="tns:receiveMailResponse"/>
-
 <xs:element name="verifyCustomer" type="tns:verifyCustomer"/>
 
 <xs:element name="verifyCustomerResponse" type="tns:verifyCustomerResponse"/>
 
+<xs:element name="viewCustomers" type="tns:viewCustomers"/>
+
+<xs:element name="viewCustomersResponse" type="tns:viewCustomersResponse"/>
+
 <xs:element name="viewTickets" type="tns:viewTickets"/>
 
 <xs:element name="viewTicketsResponse" type="tns:viewTicketsResponse"/>
+
+<xs:element name="viewUsers" type="tns:viewUsers"/>
+
+<xs:element name="viewUsersResponse" type="tns:viewUsersResponse"/>
 
 <xs:complexType name="getNewWords">
 <xs:sequence/>
@@ -67,6 +89,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getHardwareCategory">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getHardwareCategoryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getCusId">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
@@ -80,29 +112,25 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="receiveMail">
-<xs:sequence>
-<xs:element name="from" type="xs:string" minOccurs="0"/>
-<xs:element name="date" type="xs:string" minOccurs="0"/>
-<xs:element name="subject" type="xs:string" minOccurs="0"/>
-<xs:element name="content" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="receiveMailResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="addUser">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
 <xs:element name="pswd" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="addUserResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteCustomer">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteCustomerResponse">
 <xs:sequence/>
 </xs:complexType>
 
@@ -115,7 +143,9 @@
 </xs:complexType>
 
 <xs:complexType name="addTicketResponse">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="addCustomer">
@@ -129,6 +159,25 @@
 <xs:complexType name="addCustomerResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewCustomers">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="viewCustomersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:customers" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customers">
+<xs:sequence>
+<xs:element name="company" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -146,9 +195,16 @@
 <xs:sequence>
 <xs:element name="date" type="xs:string" minOccurs="0"/>
 <xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
 <xs:element name="prob" type="xs:string" minOccurs="0"/>
 <xs:element name="severity" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteTicket">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -161,6 +217,25 @@
 <xs:complexType name="getPasswordResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewUsers">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="viewUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:users" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="users">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -192,6 +267,26 @@
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSoftwareCategory">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSoftwareCategoryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUser">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUserResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="verifyCustomer">

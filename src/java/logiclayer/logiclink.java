@@ -5,13 +5,19 @@
  */
 package logiclayer;
 
+import datalayer.Customers;
 import datalayer.Datalink;
 import datalayer.Datalink_Service;
 import datalayer.Tickets;
+import datalayer.Users;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import srs.mail.MailSender;
+import srs.nlp.Training;
 import srs.nlp.WordDetector;
 
 /**
@@ -61,19 +67,24 @@ public class logiclink {
     }
     
     @WebMethod(operationName = "getMessage")
-    public void getMessage(@WebParam(name = "id")int id,@WebParam(name = "line")String line){
-        int level=WordDetector.lineParser(line);
-        proxy.addTicket(id, line, level);
+    public void getMessage(@WebParam(name = "id")int id, @WebParam(name = "company") String email, @WebParam(name = "line")String line){
+        int level=Training.map(line);
+        String category=WordDetector.categorizeWord(line);
+        int ticketId=proxy.addTicket(id, line, level);
+        MailSender.send(email, ticketId, line, category);
     }
     
     @WebMethod(operationName = "viewTickets")
-    public ArrayList<Tickets> viewTickets() {
-        ArrayList<Tickets> ticket = new ArrayList<Tickets>();
-        ticket=(ArrayList<Tickets>) proxy.viewTickets();
+    public List<Tickets> viewTickets() {
+        List<Tickets> ticket = new LinkedList<>();
+        ticket=(List<Tickets>) proxy.viewTickets();
         return ticket;
         
     }
-
+    @WebMethod(operationName = "deleteTicket")
+    public void deleteTicket(int id){
+        proxy.deleteTicket(id);
+    }
     /**
      * Web service operation
      */
@@ -83,8 +94,37 @@ public class logiclink {
         return ret;
     }
     @WebMethod(operationName = "addUser")
-    public void addUser(@WebParam(name = "name") String name, @WebParam(name = "pswd") String pswd){
-        proxy.addUser(name, pswd);
+    public void addUser(@WebParam(name = "name") String name, @WebParam(name = "email") String email, @WebParam(name = "pswd") String pswd){
+        proxy.addUser(name, email, pswd);
     }
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "viewCustomers")
+    public List<Customers> viewCustomers() {
+        List<Customers> customer = new LinkedList<>();
+        customer = (List<Customers>)proxy.viewCustomers();
+        return customer;
+    }
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "viewUsers")
+    public List<Users> viewUsers() {
+        return proxy.viewUsers();
+    }
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "deleteCustomer")
+    public void deleteCustomer(int id){
+       proxy.deleteCustomer(id);
+    }
+    
+    @WebMethod(operationName = "deleteUser")
+    public void deleteUser(int id){
+       proxy.deleteUser(id);
+    }       
     
 }

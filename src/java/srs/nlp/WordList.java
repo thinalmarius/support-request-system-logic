@@ -9,7 +9,6 @@ import datalayer.Datalink;
 import datalayer.Datalink_Service;
 import datalayer.Words;
 import java.util.ArrayList;
-import java.util.Set;
 
 /**
  *
@@ -28,11 +27,21 @@ public class WordList {
     /* loads the words kept for learning */
     public ArrayList<Words> learnWords(){
         ArrayList<Words> newWords = (ArrayList<Words>)proxy.getNewWords();
-        return null;
+        return newWords;
     }
     
     public ArrayList<String> excludeList(){
         ArrayList<String> words = (ArrayList<String>) proxy.excludeList();
+        return words;
+    }
+    
+    public ArrayList<String> getHardwareWords(){
+        ArrayList<String> words = (ArrayList<String>) proxy.getHardwareCategory();
+        return words;
+    }
+    
+    public ArrayList<String> getSoftwareWords(){
+        ArrayList<String> words = (ArrayList<String>) proxy.getSoftwareCategory();
         return words;
     }
 }

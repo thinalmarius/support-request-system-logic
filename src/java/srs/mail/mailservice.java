@@ -7,11 +7,10 @@ package srs.mail;
 
 import datalayer.Datalink;
 import datalayer.Datalink_Service;
-import java.util.Arrays;
-import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import srs.nlp.Training;
 import srs.nlp.WordDetector;
 
 /**
@@ -26,12 +25,14 @@ public class mailservice {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "getMail")
-    public int getMail(@WebParam(name = "from") String from, @WebParam(name = "sentDate") String sentDate, @WebParam(name = "subject") String subject, @WebParam(name = "content") String content) {
-        int id = proxy.getCusId(from, from);
+    public int getMail(@WebParam(name = "fname") String fname, @WebParam(name = "email") String email, @WebParam(name = "subject") String subject, @WebParam(name = "content") String content) {
+        int id = proxy.getCusId(fname, email);
         if(id!=0){
-            int level = WordDetector.lineParser(content);
-            String name = proxy.verifyCustomer(id);
-            proxy.addTicket(id, name, level);
+            int level = Training.map(content);
+            String category=WordDetector.categorizeWord(content);
+            //String name = proxy.verifyCustomer(id);
+            int ticketId=proxy.addTicket(id, content, level);
+            MailSender.send(email, ticketId, content, category);
             return 1;
         }
         else 
