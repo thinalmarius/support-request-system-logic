@@ -35,7 +35,9 @@ public class mailservice {
             MailSender.send(email, ticketId, content, category);
             return 1;
         }
-        else 
+        else{ 
+            MailSender.send(email, content);
             return 0;
+        }
     }
 }

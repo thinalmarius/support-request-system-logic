@@ -5,6 +5,7 @@
  */
 package srs.nlp;
 
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,12 +44,17 @@ public class WordDetectorTest {
     @Test
     public void testLineParser() {
         System.out.println("lineParser");
-        String line = "";
-        TokenizedLine expResult = null;
+        String line = "failed and error";
+        TokenizedLine expResult = new TokenizedLine();
+        HashMap<String, Integer> taggedWords = expResult.newTaggedWords();
+        taggedWords.put("failed", 1);
+        //taggedWords.put("error", 1);
+        expResult.setTaggedWords(taggedWords);
         TokenizedLine result = WordDetector.lineParser(line);
-        assertEquals(expResult, result);
+        HashMap<String, Integer> taggedResult = result.getTaggedWords();
+        assertEquals(taggedWords, taggedResult);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -57,12 +63,16 @@ public class WordDetectorTest {
     @Test
     public void testWordAnalyzer() {
         System.out.println("wordAnalyzer");
-        TokenizedLine token = null;
-        int expResult = 0;
+        TokenizedLine token = new TokenizedLine();
+        HashMap<String, Integer> tokennedWords = token.newTaggedWords();
+        tokennedWords.put("error", 1);
+        tokennedWords.put("failed", 2);
+        tokennedWords.put("severe", 1);
+        int expResult = 2;
         int result = WordDetector.wordAnalyzer(token);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -71,13 +81,13 @@ public class WordDetectorTest {
     @Test
     public void testUrgencyCalculator() {
         System.out.println("urgencyCalculator");
-        int maxLevel = 0;
-        int noOfLevels = 0;
-        int expResult = 0;
+        int maxLevel = 1;
+        int noOfLevels = 1;
+        int expResult = 1;
         int result = WordDetector.urgencyCalculator(maxLevel, noOfLevels);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -86,12 +96,12 @@ public class WordDetectorTest {
     @Test
     public void testCategorizeWord() {
         System.out.println("categorizeWord");
-        String line = "";
-        String expResult = "";
+        String line = "motherboard";
+        String expResult = "hardware";
         String result = WordDetector.categorizeWord(line);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }

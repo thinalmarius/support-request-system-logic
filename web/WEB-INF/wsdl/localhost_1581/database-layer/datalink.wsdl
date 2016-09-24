@@ -4,107 +4,17 @@
 <xsd:import namespace="http://datalayer/" schemaLocation="http://localhost:1581/database-layer/datalink?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="getSoftwareCategory">
-<part name="parameters" element="tns:getSoftwareCategory"/>
-</message>
-<message name="getSoftwareCategoryResponse">
-<part name="parameters" element="tns:getSoftwareCategoryResponse"/>
-</message>
 <message name="getHardwareCategory">
 <part name="parameters" element="tns:getHardwareCategory"/>
 </message>
 <message name="getHardwareCategoryResponse">
 <part name="parameters" element="tns:getHardwareCategoryResponse"/>
 </message>
-<message name="getCusId">
-<part name="parameters" element="tns:getCusId"/>
+<message name="getSoftwareCategory">
+<part name="parameters" element="tns:getSoftwareCategory"/>
 </message>
-<message name="getCusIdResponse">
-<part name="parameters" element="tns:getCusIdResponse"/>
-</message>
-<message name="getuser">
-<part name="parameters" element="tns:getuser"/>
-</message>
-<message name="getuserResponse">
-<part name="parameters" element="tns:getuserResponse"/>
-</message>
-<message name="excludeList">
-<part name="parameters" element="tns:excludeList"/>
-</message>
-<message name="excludeListResponse">
-<part name="parameters" element="tns:excludeListResponse"/>
-</message>
-<message name="verifyCustomer">
-<part name="parameters" element="tns:verifyCustomer"/>
-</message>
-<message name="verifyCustomerResponse">
-<part name="parameters" element="tns:verifyCustomerResponse"/>
-</message>
-<message name="viewTickets">
-<part name="parameters" element="tns:viewTickets"/>
-</message>
-<message name="viewTicketsResponse">
-<part name="parameters" element="tns:viewTicketsResponse"/>
-</message>
-<message name="getLearnWords">
-<part name="parameters" element="tns:getLearnWords"/>
-</message>
-<message name="addCustomer">
-<part name="parameters" element="tns:addCustomer"/>
-</message>
-<message name="addCustomerResponse">
-<part name="parameters" element="tns:addCustomerResponse"/>
-</message>
-<message name="getStopWords">
-<part name="parameters" element="tns:getStopWords"/>
-</message>
-<message name="getStopWordsResponse">
-<part name="parameters" element="tns:getStopWordsResponse"/>
-</message>
-<message name="deleteCustomer">
-<part name="parameters" element="tns:deleteCustomer"/>
-</message>
-<message name="deleteCustomerResponse">
-<part name="parameters" element="tns:deleteCustomerResponse"/>
-</message>
-<message name="viewUsers">
-<part name="parameters" element="tns:viewUsers"/>
-</message>
-<message name="viewUsersResponse">
-<part name="parameters" element="tns:viewUsersResponse"/>
-</message>
-<message name="deleteTicket">
-<part name="parameters" element="tns:deleteTicket"/>
-</message>
-<message name="viewCustomers">
-<part name="parameters" element="tns:viewCustomers"/>
-</message>
-<message name="viewCustomersResponse">
-<part name="parameters" element="tns:viewCustomersResponse"/>
-</message>
-<message name="addTicket">
-<part name="parameters" element="tns:addTicket"/>
-</message>
-<message name="addTicketResponse">
-<part name="parameters" element="tns:addTicketResponse"/>
-</message>
-<message name="getNewWords">
-<part name="parameters" element="tns:getNewWords"/>
-</message>
-<message name="getNewWordsResponse">
-<part name="parameters" element="tns:getNewWordsResponse"/>
-</message>
-<message name="deleteUser">
-<part name="parameters" element="tns:deleteUser"/>
-</message>
-<message name="deleteUserResponse">
-<part name="parameters" element="tns:deleteUserResponse"/>
-</message>
-<message name="getPassword">
-<part name="parameters" element="tns:getPassword"/>
-</message>
-<message name="getPasswordResponse">
-<part name="parameters" element="tns:getPasswordResponse"/>
+<message name="getSoftwareCategoryResponse">
+<part name="parameters" element="tns:getSoftwareCategoryResponse"/>
 </message>
 <message name="addUser">
 <part name="parameters" element="tns:addUser"/>
@@ -112,93 +22,174 @@
 <message name="addUserResponse">
 <part name="parameters" element="tns:addUserResponse"/>
 </message>
+<message name="addCustomer">
+<part name="parameters" element="tns:addCustomer"/>
+</message>
+<message name="addCustomerResponse">
+<part name="parameters" element="tns:addCustomerResponse"/>
+</message>
+<message name="deleteUser">
+<part name="parameters" element="tns:deleteUser"/>
+</message>
+<message name="deleteUserResponse">
+<part name="parameters" element="tns:deleteUserResponse"/>
+</message>
+<message name="viewUsers">
+<part name="parameters" element="tns:viewUsers"/>
+</message>
+<message name="viewUsersResponse">
+<part name="parameters" element="tns:viewUsersResponse"/>
+</message>
+<message name="deleteCustomer">
+<part name="parameters" element="tns:deleteCustomer"/>
+</message>
+<message name="deleteCustomerResponse">
+<part name="parameters" element="tns:deleteCustomerResponse"/>
+</message>
+<message name="viewTickets">
+<part name="parameters" element="tns:viewTickets"/>
+</message>
+<message name="viewTicketsResponse">
+<part name="parameters" element="tns:viewTicketsResponse"/>
+</message>
+<message name="viewCustomers">
+<part name="parameters" element="tns:viewCustomers"/>
+</message>
+<message name="viewCustomersResponse">
+<part name="parameters" element="tns:viewCustomersResponse"/>
+</message>
+<message name="getCusId">
+<part name="parameters" element="tns:getCusId"/>
+</message>
+<message name="getCusIdResponse">
+<part name="parameters" element="tns:getCusIdResponse"/>
+</message>
+<message name="deleteTicket">
+<part name="parameters" element="tns:deleteTicket"/>
+</message>
+<message name="getPassword">
+<part name="parameters" element="tns:getPassword"/>
+</message>
+<message name="getPasswordResponse">
+<part name="parameters" element="tns:getPasswordResponse"/>
+</message>
+<message name="getLearnWords">
+<part name="parameters" element="tns:getLearnWords"/>
+</message>
+<message name="excludeList">
+<part name="parameters" element="tns:excludeList"/>
+</message>
+<message name="excludeListResponse">
+<part name="parameters" element="tns:excludeListResponse"/>
+</message>
+<message name="getuser">
+<part name="parameters" element="tns:getuser"/>
+</message>
+<message name="getuserResponse">
+<part name="parameters" element="tns:getuserResponse"/>
+</message>
+<message name="addTicket">
+<part name="parameters" element="tns:addTicket"/>
+</message>
+<message name="addTicketResponse">
+<part name="parameters" element="tns:addTicketResponse"/>
+</message>
+<message name="getStopWords">
+<part name="parameters" element="tns:getStopWords"/>
+</message>
+<message name="getStopWordsResponse">
+<part name="parameters" element="tns:getStopWordsResponse"/>
+</message>
+<message name="getNewWords">
+<part name="parameters" element="tns:getNewWords"/>
+</message>
+<message name="getNewWordsResponse">
+<part name="parameters" element="tns:getNewWordsResponse"/>
+</message>
+<message name="verifyCustomer">
+<part name="parameters" element="tns:verifyCustomer"/>
+</message>
+<message name="verifyCustomerResponse">
+<part name="parameters" element="tns:verifyCustomerResponse"/>
+</message>
 <portType name="datalink">
-<operation name="getSoftwareCategory">
-<input wsam:Action="http://datalayer/datalink/getSoftwareCategoryRequest" message="tns:getSoftwareCategory"/>
-<output wsam:Action="http://datalayer/datalink/getSoftwareCategoryResponse" message="tns:getSoftwareCategoryResponse"/>
-</operation>
 <operation name="getHardwareCategory">
 <input wsam:Action="http://datalayer/datalink/getHardwareCategoryRequest" message="tns:getHardwareCategory"/>
 <output wsam:Action="http://datalayer/datalink/getHardwareCategoryResponse" message="tns:getHardwareCategoryResponse"/>
 </operation>
-<operation name="getCusId">
-<input wsam:Action="http://datalayer/datalink/getCusIdRequest" message="tns:getCusId"/>
-<output wsam:Action="http://datalayer/datalink/getCusIdResponse" message="tns:getCusIdResponse"/>
-</operation>
-<operation name="getuser">
-<input wsam:Action="http://datalayer/datalink/getuserRequest" message="tns:getuser"/>
-<output wsam:Action="http://datalayer/datalink/getuserResponse" message="tns:getuserResponse"/>
-</operation>
-<operation name="excludeList">
-<input wsam:Action="http://datalayer/datalink/excludeListRequest" message="tns:excludeList"/>
-<output wsam:Action="http://datalayer/datalink/excludeListResponse" message="tns:excludeListResponse"/>
-</operation>
-<operation name="verifyCustomer">
-<input wsam:Action="http://datalayer/datalink/verifyCustomerRequest" message="tns:verifyCustomer"/>
-<output wsam:Action="http://datalayer/datalink/verifyCustomerResponse" message="tns:verifyCustomerResponse"/>
-</operation>
-<operation name="viewTickets">
-<input wsam:Action="http://datalayer/datalink/viewTicketsRequest" message="tns:viewTickets"/>
-<output wsam:Action="http://datalayer/datalink/viewTicketsResponse" message="tns:viewTicketsResponse"/>
-</operation>
-<operation name="getLearnWords">
-<input wsam:Action="http://datalayer/datalink/getLearnWords" message="tns:getLearnWords"/>
-</operation>
-<operation name="addCustomer">
-<input wsam:Action="http://datalayer/datalink/addCustomerRequest" message="tns:addCustomer"/>
-<output wsam:Action="http://datalayer/datalink/addCustomerResponse" message="tns:addCustomerResponse"/>
-</operation>
-<operation name="getStopWords">
-<input wsam:Action="http://datalayer/datalink/getStopWordsRequest" message="tns:getStopWords"/>
-<output wsam:Action="http://datalayer/datalink/getStopWordsResponse" message="tns:getStopWordsResponse"/>
-</operation>
-<operation name="deleteCustomer">
-<input wsam:Action="http://datalayer/datalink/deleteCustomerRequest" message="tns:deleteCustomer"/>
-<output wsam:Action="http://datalayer/datalink/deleteCustomerResponse" message="tns:deleteCustomerResponse"/>
-</operation>
-<operation name="viewUsers">
-<input wsam:Action="http://datalayer/datalink/viewUsersRequest" message="tns:viewUsers"/>
-<output wsam:Action="http://datalayer/datalink/viewUsersResponse" message="tns:viewUsersResponse"/>
-</operation>
-<operation name="deleteTicket">
-<input wsam:Action="http://datalayer/datalink/deleteTicket" message="tns:deleteTicket"/>
-</operation>
-<operation name="viewCustomers">
-<input wsam:Action="http://datalayer/datalink/viewCustomersRequest" message="tns:viewCustomers"/>
-<output wsam:Action="http://datalayer/datalink/viewCustomersResponse" message="tns:viewCustomersResponse"/>
-</operation>
-<operation name="addTicket">
-<input wsam:Action="http://datalayer/datalink/addTicketRequest" message="tns:addTicket"/>
-<output wsam:Action="http://datalayer/datalink/addTicketResponse" message="tns:addTicketResponse"/>
-</operation>
-<operation name="getNewWords">
-<input wsam:Action="http://datalayer/datalink/getNewWordsRequest" message="tns:getNewWords"/>
-<output wsam:Action="http://datalayer/datalink/getNewWordsResponse" message="tns:getNewWordsResponse"/>
-</operation>
-<operation name="deleteUser">
-<input wsam:Action="http://datalayer/datalink/deleteUserRequest" message="tns:deleteUser"/>
-<output wsam:Action="http://datalayer/datalink/deleteUserResponse" message="tns:deleteUserResponse"/>
-</operation>
-<operation name="getPassword">
-<input wsam:Action="http://datalayer/datalink/getPasswordRequest" message="tns:getPassword"/>
-<output wsam:Action="http://datalayer/datalink/getPasswordResponse" message="tns:getPasswordResponse"/>
+<operation name="getSoftwareCategory">
+<input wsam:Action="http://datalayer/datalink/getSoftwareCategoryRequest" message="tns:getSoftwareCategory"/>
+<output wsam:Action="http://datalayer/datalink/getSoftwareCategoryResponse" message="tns:getSoftwareCategoryResponse"/>
 </operation>
 <operation name="addUser">
 <input wsam:Action="http://datalayer/datalink/addUserRequest" message="tns:addUser"/>
 <output wsam:Action="http://datalayer/datalink/addUserResponse" message="tns:addUserResponse"/>
 </operation>
+<operation name="addCustomer">
+<input wsam:Action="http://datalayer/datalink/addCustomerRequest" message="tns:addCustomer"/>
+<output wsam:Action="http://datalayer/datalink/addCustomerResponse" message="tns:addCustomerResponse"/>
+</operation>
+<operation name="deleteUser">
+<input wsam:Action="http://datalayer/datalink/deleteUserRequest" message="tns:deleteUser"/>
+<output wsam:Action="http://datalayer/datalink/deleteUserResponse" message="tns:deleteUserResponse"/>
+</operation>
+<operation name="viewUsers">
+<input wsam:Action="http://datalayer/datalink/viewUsersRequest" message="tns:viewUsers"/>
+<output wsam:Action="http://datalayer/datalink/viewUsersResponse" message="tns:viewUsersResponse"/>
+</operation>
+<operation name="deleteCustomer">
+<input wsam:Action="http://datalayer/datalink/deleteCustomerRequest" message="tns:deleteCustomer"/>
+<output wsam:Action="http://datalayer/datalink/deleteCustomerResponse" message="tns:deleteCustomerResponse"/>
+</operation>
+<operation name="viewTickets">
+<input wsam:Action="http://datalayer/datalink/viewTicketsRequest" message="tns:viewTickets"/>
+<output wsam:Action="http://datalayer/datalink/viewTicketsResponse" message="tns:viewTicketsResponse"/>
+</operation>
+<operation name="viewCustomers">
+<input wsam:Action="http://datalayer/datalink/viewCustomersRequest" message="tns:viewCustomers"/>
+<output wsam:Action="http://datalayer/datalink/viewCustomersResponse" message="tns:viewCustomersResponse"/>
+</operation>
+<operation name="getCusId">
+<input wsam:Action="http://datalayer/datalink/getCusIdRequest" message="tns:getCusId"/>
+<output wsam:Action="http://datalayer/datalink/getCusIdResponse" message="tns:getCusIdResponse"/>
+</operation>
+<operation name="deleteTicket">
+<input wsam:Action="http://datalayer/datalink/deleteTicket" message="tns:deleteTicket"/>
+</operation>
+<operation name="getPassword">
+<input wsam:Action="http://datalayer/datalink/getPasswordRequest" message="tns:getPassword"/>
+<output wsam:Action="http://datalayer/datalink/getPasswordResponse" message="tns:getPasswordResponse"/>
+</operation>
+<operation name="getLearnWords">
+<input wsam:Action="http://datalayer/datalink/getLearnWords" message="tns:getLearnWords"/>
+</operation>
+<operation name="excludeList">
+<input wsam:Action="http://datalayer/datalink/excludeListRequest" message="tns:excludeList"/>
+<output wsam:Action="http://datalayer/datalink/excludeListResponse" message="tns:excludeListResponse"/>
+</operation>
+<operation name="getuser">
+<input wsam:Action="http://datalayer/datalink/getuserRequest" message="tns:getuser"/>
+<output wsam:Action="http://datalayer/datalink/getuserResponse" message="tns:getuserResponse"/>
+</operation>
+<operation name="addTicket">
+<input wsam:Action="http://datalayer/datalink/addTicketRequest" message="tns:addTicket"/>
+<output wsam:Action="http://datalayer/datalink/addTicketResponse" message="tns:addTicketResponse"/>
+</operation>
+<operation name="getStopWords">
+<input wsam:Action="http://datalayer/datalink/getStopWordsRequest" message="tns:getStopWords"/>
+<output wsam:Action="http://datalayer/datalink/getStopWordsResponse" message="tns:getStopWordsResponse"/>
+</operation>
+<operation name="getNewWords">
+<input wsam:Action="http://datalayer/datalink/getNewWordsRequest" message="tns:getNewWords"/>
+<output wsam:Action="http://datalayer/datalink/getNewWordsResponse" message="tns:getNewWordsResponse"/>
+</operation>
+<operation name="verifyCustomer">
+<input wsam:Action="http://datalayer/datalink/verifyCustomerRequest" message="tns:verifyCustomer"/>
+<output wsam:Action="http://datalayer/datalink/verifyCustomerResponse" message="tns:verifyCustomerResponse"/>
+</operation>
 </portType>
 <binding name="datalinkPortBinding" type="tns:datalink">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="getSoftwareCategory">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="getHardwareCategory">
 <soap:operation soapAction=""/>
 <input>
@@ -208,7 +199,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getCusId">
+<operation name="getSoftwareCategory">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -217,7 +208,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getuser">
+<operation name="addUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -225,101 +216,8 @@
 <output>
 <soap:body use="literal"/>
 </output>
-</operation>
-<operation name="excludeList">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="verifyCustomer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="viewTickets">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getLearnWords">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
 </operation>
 <operation name="addCustomer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getStopWords">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="deleteCustomer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="viewUsers">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="deleteTicket">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="viewCustomers">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="addTicket">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getNewWords">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -337,6 +235,57 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="viewUsers">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="deleteCustomer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="viewTickets">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="viewCustomers">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getCusId">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="deleteTicket">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
 <operation name="getPassword">
 <soap:operation soapAction=""/>
 <input>
@@ -346,7 +295,58 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="addUser">
+<operation name="getLearnWords">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="excludeList">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getuser">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="addTicket">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getStopWords">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getNewWords">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="verifyCustomer">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

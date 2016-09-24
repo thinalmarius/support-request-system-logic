@@ -32,7 +32,7 @@ public class logiclink {
     
     
     /*public static void main(String args[]){
-        String result=checkUserPwd("admin","admen");
+        int result=getUserId("admin","admin@gmail.com");
         System.out.println(result);
     }*/
 
@@ -60,8 +60,9 @@ public class logiclink {
         return result;
         
     }
+    
     @WebMethod(operationName= "getCusId")
-    public int getCusId(@WebParam(name = "name") String name, @WebParam(name = "company") String email){
+    public int getCusId(@WebParam(name = "name") String name, @WebParam(name = "email") String email){
         int id=proxy.getCusId(name, email);
         return id;
     }
@@ -94,8 +95,8 @@ public class logiclink {
         return ret;
     }
     @WebMethod(operationName = "addUser")
-    public void addUser(@WebParam(name = "name") String name, @WebParam(name = "email") String email, @WebParam(name = "pswd") String pswd){
-        proxy.addUser(name, email, pswd);
+    public void addUser(@WebParam(name = "name") String name, @WebParam(name = "username") String username,@WebParam(name = "email") String email, @WebParam(name = "pswd") String pswd){
+        proxy.addUser(name, username, email, pswd);
     }
     /**
      * Web service operation
@@ -114,6 +115,25 @@ public class logiclink {
     public List<Users> viewUsers() {
         return proxy.viewUsers();
     }
+    @WebMethod(operationName = "getUserId")
+    public int getUserId(String name, String email){
+        int id=0;
+        List<Users> users = new LinkedList<>();
+        users=proxy.viewUsers();
+        for(Users us : users){
+            String n = us.getName();
+            String e = us.getEmail();
+            if(name.equals(n) && email.equals(e)){
+                id=us.getId(); 
+            }
+        }
+        return id;
+    }
+     
+    @WebMethod(operationName = "sendPassword")
+    public void sendPassword(String email, String pass){
+        MailSender.sendPass(email, pass);
+    }
     /**
      * Web service operation
      */
@@ -126,5 +146,14 @@ public class logiclink {
     public void deleteUser(int id){
        proxy.deleteUser(id);
     }       
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getPassword")
+    public String getPassword(@WebParam(name = "name") String name) {
+        //TODO write your implementation code here:
+        return proxy.getPassword(name);
+    }
     
 }

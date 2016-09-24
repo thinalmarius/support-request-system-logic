@@ -43,8 +43,65 @@ public class MailSender {
     static String host;
     static String port;
     static String ccEmail;
+    static String ccEmail1;
+    static String ccEmail2;
     
+    public static void send(String recipientEmail, String content){
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("mail.xml");
+            org.w3c.dom.Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            host = (String) xpath.compile("//send//authentication//host").evaluate(document, XPathConstants.STRING);
+            username = (String) xpath.compile("//send//authentication//username").evaluate(document, XPathConstants.STRING);
+            password = (String) xpath.compile("//send//authentication//password").evaluate(document, XPathConstants.STRING);
+            port = (String) xpath.compile("//send//authentication//port").evaluate(document, XPathConstants.STRING);
+            ccEmail1 = (String) xpath.compile("//send//software//mailid").evaluate(document, XPathConstants.STRING);
+            ccEmail2 = (String) xpath.compile("//send//hardware//mailid").evaluate(document, XPathConstants.STRING);
+        } catch (IOException e) {
+        } catch (SAXException ex) {
+             logger.log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        } catch (XPathExpressionException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        }
         
+        // Get a Properties object
+        
+        Properties props = System.getProperties();
+        props.setProperty("mail.smtps.host", host);
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        //props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtps.auth", "true");
+        Session session = Session.getInstance(props, null); 
+        
+        String title = "Un-registered Customer - "+recipientEmail;
+        String msg = "Request - "+content;
+        try {
+            System.out.println("Done");
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("no-reply@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(ccEmail2));
+            message.setRecipients(Message.RecipientType.CC, InternetAddress.parse(ccEmail1));
+            message.setSubject(title);
+            
+            message.setText(msg);
+            
+            SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
+
+            t.connect(host, username, password);
+            t.sendMessage(message, message.getAllRecipients());      
+            t.close();
+            System.out.println("Done");
+
+	}catch (MessagingException e) {
+        	
+	}
+        
+    }
+    
     public static void send(String recipientEmail, int ticketid, String line, String category) {
         try {
             fh = new FileHandler("maillog.txt");
@@ -104,6 +161,7 @@ public class MailSender {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("no-reply@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setRecipients(Message.RecipientType.CC, InternetAddress.parse(ccEmail));
             message.setSubject(title);
             System.out.println("Done");
             message.setText(msg);
@@ -114,6 +172,77 @@ public class MailSender {
             t.sendMessage(message, message.getAllRecipients());      
             t.close();
             System.out.println("Done");
+
+	} catch (MessagingException e) {
+        	
+	}
+    }
+    
+    public static void sendPass(String email, String pass){
+        try {
+            fh = new FileHandler("maillog.txt");
+        } catch (IOException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        }
+        SimpleFormatter formatterTxt = new SimpleFormatter();
+        fh.setFormatter(formatterTxt);
+        logger.addHandler(fh);
+        
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("mail.xml");
+            org.w3c.dom.Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            host = (String) xpath.compile("//send//authentication//host").evaluate(document, XPathConstants.STRING);
+            username = (String) xpath.compile("//send//authentication//username").evaluate(document, XPathConstants.STRING);
+            password = (String) xpath.compile("//send//authentication//password").evaluate(document, XPathConstants.STRING);
+            port = (String) xpath.compile("//send//authentication//port").evaluate(document, XPathConstants.STRING);
+            
+        } catch (IOException e) {
+        } catch (SAXException ex) {
+             logger.log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        } catch (XPathExpressionException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        }
+        
+        // Get a Properties object
+        
+        Properties props = System.getProperties();
+        props.setProperty("mail.smtps.host", host);
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        //props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtps.auth", "true");
+            
+        
+        
+        //props.put("mail.smtps.quitwait", "false");
+           
+        Session session = Session.getInstance(props, null); 
+        
+        String title="Your Password";           
+        String msg="Dear User,"
+                + "\n\nYour password is : "+pass;
+           
+        try {
+            //System.out.println("Done");
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("no-reply@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject(title);
+            //System.out.println("Done");
+            message.setText(msg);
+            //System.out.println("Done");
+            SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
+
+            t.connect(host, username, password);
+            t.sendMessage(message, message.getAllRecipients());      
+            t.close();
+            //System.out.println("Done");
 
 	} catch (MessagingException e) {
         	
